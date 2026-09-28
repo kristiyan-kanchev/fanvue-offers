@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Throwaway values: src/env.ts validates on import, and nothing here talks to Fanvue.
+    env:
+      OAUTH_CLIENT_ID: ci-client-id
+      OAUTH_CLIENT_SECRET: ci-client-secret
+      OAUTH_REDIRECT_URI: http://localhost:3000/api/oauth/callback
+      OAUTH_SCOPES: read:self read:creator write:creator read:insights read:fan read:chat write:chat
+      SESSION_SECRET: ci-session-secret-value
+      BASE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build

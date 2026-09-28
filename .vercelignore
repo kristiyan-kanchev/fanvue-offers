@@ -1,0 +1,4 @@
+# Never upload local secrets or tooling from a CLI deploy.
+.env*
+!.env.example
+.claude

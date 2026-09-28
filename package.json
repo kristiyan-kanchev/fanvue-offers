@@ -1,0 +1,52 @@
+{
+  "name": "offers",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "types:fanvue": "openapi-typescript https://api.fanvue.com/docs/openapi.json -o src/fanvue/schema.d.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.73",
+    "@fanvue/ui": "^3.36.0",
+    "@number-flow/react": "^0.6.2",
+    "@paper-design/shaders-react": "^0.0.81",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@t3-oss/env-nextjs": "^0.13.8",
+    "ai": "^7.0.112",
+    "jose": "^6.1.0",
+    "motion": "^13.4.4",
+    "next": "16.3.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "server-only": "0.0.1",
+    "zod": "^4.1.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "openapi-typescript": "^7.9.1",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.0",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "sharp",
+      "unrs-resolver",
+      "esbuild"
+    ]
+  },
+  "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a"
+}
